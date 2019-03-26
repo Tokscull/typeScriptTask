@@ -1,20 +1,21 @@
-let names = ["hoqq", "bbllkw", "oox", "ejjuyyy", "plmiis", "xxxzgpsssa", "xxwwkktt",
-    "znnnnfqknaz", "qqquuhii", "dvvvwz"]
 
-function task1(arrayString: string[], ... args: string[]) {
-    let maxLength = 0;
-    for (const i in arrayString) {
-        if (i) {
-            for (const j in args) {
-                if (Math.abs(names[i].length - names[j].length) > maxLength) {
-                    maxLength = Math.abs(names[i].length - names[j].length);
-                }
+function getMaxDifference(arrayString: string[], ...otherString: string[]): number {
+    let maxLength: number = 0;
+    for (const array of arrayString) {
+        for (const other of otherString) {
+            if ((Math.abs(array.length - other.length)) > maxLength) {
+                maxLength = Math.abs(array.length - other.length);
             }
         }
-
     }
-    // tslint:disable-next-line
-    console.log(maxLength)
-
+    if (maxLength > 0) {
+        return maxLength;
+    } else {
+        return -1;
+    }
 }
-task1(names);
+
+let a1 = ["4444", "1", "333"]
+
+// tslint:disable-next-line
+console.log(getMaxDifference(a1,"22","999999999","55555"));
